@@ -26,7 +26,7 @@ namespace ExamenPoo1KennethGaldamez.Controllers
               var tarea = await _tareasService.GetTareasByTimeAsync(prioridad);
               if (tarea == null)
               {
-                   return NotFound("Ninguna requiere ese tiempo...");
+                   return NotFound("Ninguna tarea encontrada...");
               }
 
             else
