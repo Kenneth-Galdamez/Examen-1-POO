@@ -6,7 +6,7 @@ namespace ExamenPoo1KennethGaldamez.Services.Interfaces
 
             //Asincronos
             Task<TareaDto> GetTareasByPriorityAsync(string prioridad);
-            Task<TareaDto> GetTareasByTimeAsync(string tiempo);
+            Task<TareaDto> GetTareasByStateAsync(string estado);
             Task<TareaDto> GetTareasByIdAsync(Guid id);
 
              Task<bool> CreateAsync(TareaCreateDto dto);
