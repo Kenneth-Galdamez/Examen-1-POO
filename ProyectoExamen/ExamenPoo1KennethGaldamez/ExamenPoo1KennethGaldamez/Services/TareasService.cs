@@ -114,10 +114,10 @@ namespace ExamenPoo1KennethGaldamez.Services
         }
 
 
-        public async Task<TareaDto> GetTareasByTimeAsync(string tiempo)
+        public async Task<TareaDto> GetTareasByStateAsync(string estado)
         {
             var tareas = await ReadTareasFromFileAsync();
-            TareaDto tarea = tareas.FirstOrDefault(c => c.Tiempo == tiempo);
+            TareaDto tarea = tareas.FirstOrDefault(c => c.Estado == estado);
             return tarea;
         }
         public async Task<TareaDto> GetTareasByIdAsync(Guid id)
