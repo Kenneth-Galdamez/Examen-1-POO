@@ -26,7 +26,9 @@ namespace ExamenPoo1KennethGaldamez.Controllers
               var tarea = await _tareasService.GetTareasByTimeAsync(prioridad);
               if (tarea == null)
               {
-                   return NotFound("Ninguna tarea encontrada...");
+                              
+                Return NotFound();
+
               }
 
             else
@@ -36,23 +38,19 @@ namespace ExamenPoo1KennethGaldamez.Controllers
 
         }
 
+           [HttpGet("{state}")]
+            public async Task<ActionResult> GetState(string state)
+    var tarea = await _tareasService.GetTareasByStateAsync(state);
+               if (tarea == null)
+               {
+                 return NotFound("Ninguna tarea encontrada...");
+               }
 
-        //[HttpGet("{tiempo}")]
-
-        //    public async Task<ActionResult> GetTime(string tiempo)
-        //    {
-        //        var tarea = await _tareasService.GetTareasByTimeAsync(tiempo);
-        //        if (tarea == null)
-        //        {
-        //            return NotFound("Ninguna requiere ese tiempo...");
-        //        }
-
-        //        else
-        //        {
-        //            return Ok(tarea);
-        //        }
-
-        //    }
+              else
+               {
+                  return Ok(tarea);
+               } 
+}   
                 
             [HttpPost]
             public async Task<ActionResult> Create(TareaCreateDto dto)
@@ -64,7 +62,7 @@ namespace ExamenPoo1KennethGaldamez.Controllers
 
             }
 
-            [HttpPut]
+            [HttpPut("{id}")]
             public async Task<ActionResult> Edit(TareaEditDto dto, Guid id)
             {
 
